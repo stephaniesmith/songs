@@ -1,9 +1,10 @@
 import React from 'react';
+import SongList from './SongList';
 
 const App = props => {
   return (
     <div>
-      Hello App!
+      <SongList/>
     </div>
   );
 };
