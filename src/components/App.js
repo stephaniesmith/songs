@@ -6,6 +6,6 @@ const App = props => {
       Hello App!
     </div>
   );
-}
+};
 
 export default App;
