@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { selectSong } from '../actions';
+
 
 export class SongList extends Component {
   static propTypes = {
@@ -8,15 +10,19 @@ export class SongList extends Component {
   };
 
   render() {
-    const { songs } = this.props;
+    const { songs, selectSong } = this.props;
     return (
       <div className="ui divided list">
-        {songs.map(({ title }) => {
+        {songs.map((song) => {
+          const { title } = song;
+
           return (
             <div className="item" key={title}>
               <div className="right floated content">
-                <button className="ui button primary">
-                Select
+                <button
+                  onClick={() => selectSong(song)}
+                  className="ui button primary">
+                  Select
                 </button>
               </div>
               <div className="content">{title}</div>
@@ -28,8 +34,8 @@ export class SongList extends Component {
   }
 }
 
-const mapStateToProps = ({ songs }) => {
+const mapStateToProps = ({ songs, }) => {
   return { songs };
 };
 
-export default connect(mapStateToProps)(SongList);
+export default connect(mapStateToProps, { selectSong })(SongList);
