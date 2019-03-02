@@ -20,14 +20,9 @@ const SongDetail = ({ selectedSong }) => {
 };
 
 SongDetail.propTypes = {
-
+  selectedSong: PropTypes.object,
 };
 
 const mapStateToProps = ({ selectedSong }) => ({ selectedSong });
-
-const mapDispatchToProps = {
-  
-};
-
 
 export default connect(mapStateToProps)(SongDetail);
